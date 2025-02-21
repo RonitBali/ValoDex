@@ -7,7 +7,8 @@ function App() {
 
   return (
     <>
-    <Agents/>
+    <h1 className="text-cyan-500">Ronit</h1>
+    <Home/>
       {/* <Router>
         <Routes>
           <Route path = '/' element = {<Home/>}/>
