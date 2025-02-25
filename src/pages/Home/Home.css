@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.container{
+.home-container{
     background-color: black;
     color: white;
     display: flex;
@@ -20,6 +20,7 @@
     background: yellow;
     
 }
+
 
 
 

@@ -1,16 +1,24 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import "../Home/Home.css"
+import Navbar from '../../components/Navbar';
+import Hero from '../../components/Hero';
+import Featured from '../../components/Featured';
+import Footer from '../../components/Footer';
 
 
 const Home = () => {
 
   return (
-    <div className="container">
-     {/* <motion.button className="py-4 px-3 text-white bg-blue-400 rounded outline-none">Click me</motion.button> */}
-      <motion.button className="py-4 px-3 text-white bg-blue-400 rounded outline-none">Click me</motion.button> 
-        
-    </div>
+    <>
+  
+      <Navbar />
+      <Hero />
+      <Featured />
+      <Footer /> 
+
+    </>
   );
 };
 
 export default Home;
+
