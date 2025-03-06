@@ -1,9 +1,18 @@
-
 .cards-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
     gap: 20px; 
+    -webkit-touch-callout: none; /* Disable callout menu on iOS */
+    -webkit-user-select: none;   /* Disable text selection on iOS */
+    -moz-user-select: none;      /* Disable text selection on Firefox */
+    -ms-user-select: none;       /* Disable text selection on Microsoft Edge */
+    user-select: none;           /* Disable text selection for all browsers */
+    touch-action: manipulation;  /* Prevent long-press zoom */
+}
+.card img {
+    pointer-events: none;
+    -webkit-user-drag: none;
 }
 .card {
     width: 300px;
@@ -15,14 +24,21 @@
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     cursor: pointer;
     margin-bottom: 15px;
+    -webkit-touch-callout: none; /* Disable callout menu on iOS */
+    -webkit-user-select: none;   /* Disable text selection on iOS */
+    -moz-user-select: none;      /* Disable text selection on Firefox */
+    -ms-user-select: none;       /* Disable text selection on Microsoft Edge */
+    user-select: none;           /* Disable text selection for all browsers */
+    touch-action: manipulation;  /* Prevent long-press zoom */
 }
 
-.card:hover {
+
+.card:hover, 
+.card:active {  
     transform: scale(1.05);
     box-shadow: 0px 6px 20px rgba(255, 0, 0, 0.5);
-    
-    
 }
+
 
 .background {
     width: 100%;
@@ -33,9 +49,12 @@
     transition: filter 0.3s ease-in-out;
 }
 
-.card:hover .background {
+
+.card:hover .background, 
+.card:active .background { 
     filter: brightness(1);
 }
+
 
 .card-contents {
     text-align: center;
@@ -48,32 +67,15 @@
     flex-direction: column;
 }
 
-.card-contents img {
-    width: 80px;
-    height: 80px;
-}
-
-.card-contents h1 {
-    font-size: 1.5rem;
-    color: #ffffff;
-    margin-bottom: 5px;
-}
-
-.card-contents p {
-    font-size: 1rem;
-    color: #ff4655;
-    font-weight: bold;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .cards-container {
-        flex-direction: column; /* Stack cards vertically */
-        align-items: center; /* Center them */
+        flex-direction: column;
+        align-items: center;
     }
     .card {
-        width: 90%;  /* Adjust width for mobile */
+        width: 90%;
         max-width: 280px;
-        margin: 0 auto 15px;  /* Center card */
+        margin: 0 auto 15px;
     }
 }

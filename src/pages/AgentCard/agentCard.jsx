@@ -1,9 +1,25 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useState } from "react";
 import "../AgentCard/agentCard.css";
 import { motion } from "framer-motion";
 
 const AgentsCard = ({ agent }) => {
+  const [isHeld, setIsHeld] = useState(false);
+  let holdTimeout;
+
+  
+  const handleTouchStart = () => {
+    holdTimeout = setTimeout(() => {
+      setIsHeld(true);
+    }, 500);
+  };
+
+
+  const handleTouchEnd = () => {
+    clearTimeout(holdTimeout);
+    setIsHeld(false);
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 50 }}
@@ -14,16 +30,23 @@ const AgentsCard = ({ agent }) => {
     >
       <motion.div 
         className="card"
-        whileHover="hover"
         initial="initial"
+        whileHover="hover"
+        animate={isHeld ? "hover" : "initial"} 
+        variants={{
+          initial: { scale: 1 },
+          hover: { scale: 1.05 }
+        }}
+        transition={{ duration: 0.1 }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
-        {/* Background Image */}
         <div 
           className="background"  
           style={{ backgroundImage: `url(${agent.background})` }}
         ></div>
 
-        {/* Card Contents (Text and Display Icon) */}
+     
         <motion.div 
           className="card-contents"
           variants={{
@@ -36,16 +59,16 @@ const AgentsCard = ({ agent }) => {
           <p className="text-gray-400">{agent.role?.displayName}</p>
         </motion.div>
 
-        {/* Enlarged Full Portrait on Hover */}
+     
         <motion.img 
           src={agent.fullPortrait}
           alt={agent.displayName}
           className="agent-image"
-        
-          initial={{scale:0.8,opacity:0}}
-                 whileHover={{opacity:1,scale:2.7,y:-200}}
-                 transition={{duration:0.2}}
-          
+          variants={{
+            initial: { opacity: 0, scale: 0.8 },
+            hover: { opacity: 1, scale: 2.7, y: -200 }
+          }}
+          transition={{ duration: 0.3 }}
         />
       </motion.div>
     </motion.section>
@@ -53,6 +76,10 @@ const AgentsCard = ({ agent }) => {
 };
 
 export default AgentsCard;
+
+                //  initial={{scale:0.8,opacity:0}}
+                //  whileHover={{opacity:1,scale:2.7,y:-200}}
+                //  transition={{duration:0.2}}
 
 
 
