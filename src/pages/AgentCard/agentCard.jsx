@@ -4,6 +4,13 @@ import "../AgentCard/agentCard.css";
 import { motion } from "framer-motion";
 
 const AgentsCard = ({ agent }) => {
+  const backgroundColors = agent.backgroundGradientColors ;
+  const gradientStyle = backgroundColors.length
+  ? `linear-gradient(135deg, ${backgroundColors.map(color => `#${color.substring(0, 6)}`).join(", ")})`
+  : "linear-gradient(135deg, #ccc, grey)";
+
+ 
+  
   const [isHeld, setIsHeld] = useState(false);
   let holdTimeout;
 
@@ -30,6 +37,7 @@ const AgentsCard = ({ agent }) => {
     >
       <motion.div 
         className="card"
+        style={{ background: gradientStyle }}
         initial="initial"
         whileHover="hover"
         animate={isHeld ? "hover" : "initial"} 
@@ -56,7 +64,7 @@ const AgentsCard = ({ agent }) => {
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
           <h1 className="text-gray-400 font-bold text-2xl">{agent.displayName}</h1>
-          <p className="text-gray-400">{agent.role?.displayName}</p>
+          <p className="text-red-500 text-l">{agent.role?.displayName}</p>
         </motion.div>
 
      

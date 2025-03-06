@@ -3,12 +3,7 @@
     flex-wrap: wrap;
     justify-content: center; 
     gap: 20px; 
-    -webkit-touch-callout: none; /* Disable callout menu on iOS */
-    -webkit-user-select: none;   /* Disable text selection on iOS */
-    -moz-user-select: none;      /* Disable text selection on Firefox */
-    -ms-user-select: none;       /* Disable text selection on Microsoft Edge */
-    user-select: none;           /* Disable text selection for all browsers */
-    touch-action: manipulation;  /* Prevent long-press zoom */
+  
 }
 .card img {
     pointer-events: none;
@@ -20,16 +15,16 @@
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.2);
+    box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     cursor: pointer;
     margin-bottom: 15px;
-    -webkit-touch-callout: none; /* Disable callout menu on iOS */
-    -webkit-user-select: none;   /* Disable text selection on iOS */
-    -moz-user-select: none;      /* Disable text selection on Firefox */
-    -ms-user-select: none;       /* Disable text selection on Microsoft Edge */
-    user-select: none;           /* Disable text selection for all browsers */
-    touch-action: manipulation;  /* Prevent long-press zoom */
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;   
+    -moz-user-select: none;      
+    -ms-user-select: none;       
+    user-select: none;          
+    touch-action: manipulation;  
 }
 
 
@@ -62,7 +57,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(20, 20, 20, 0.9);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    background-blend-mode: overlay;
     height: 40%;
     flex-direction: column;
 }
