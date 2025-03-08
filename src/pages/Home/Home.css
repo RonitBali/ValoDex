@@ -1,5 +1,113 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans:wght@100..900&family=Outfit:wght@100..900&family=Poppins:wght@100..900&display=swap');
 
-.bodyui {
-  font-family: 'Outfit', sans-serif;
+.bodyui2{
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 20px; */
 }
+
+  
+  .abilities-container {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .abilities-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+  }
+  
+  .abilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .ability-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .ability-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  }
+  
+  .ability-slot {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    font-weight: bold;
+    color: #facc15;
+    text-transform: uppercase;
+  }
+  
+  .ability-image {
+    width: 100%;
+    max-width: 64px;
+    height: auto;
+    margin: 10px auto;
+    filter: drop-shadow(2px 2px 5px rgba(255, 255, 255, 0.3));
+  }
+  
+  .ability-name {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: bold;
+    color: #fff;
+    margin-top: 8px;
+  }
+  
+  .ability-description {
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    color: #cbd5e1;
+    margin-top: 6px;
+  }
+  
+  /* Mobile Optimization */
+  @media (max-width: 768px) {
+    .abilities-grid {
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 10px;
+      width: 100%;
+      padding: 0 10px;
+    }
+  
+    .ability-card {
+      padding: 10px; 
+      width: 80%; 
+      max-width: 250px; 
+      font-size: 0.9rem; 
+      text-align: center;
+      transform: scale(0.9);
+    }
+  
+    .ability-card img {
+      height: 50px;
+      width: auto;
+    }
+  
+    .ability-card h2 {
+      font-size: 1rem; 
+    }
+  
+    .ability-card p {
+      font-size: 0.8rem; 
+    }
+  }
+  
