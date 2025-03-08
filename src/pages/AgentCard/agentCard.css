@@ -63,6 +63,7 @@
     flex-direction: column;
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .cards-container {

@@ -17,7 +17,7 @@ const Home = () => {
         const res = await fetch("https://valorant-api.com/v1/agents");
         const data = await res.json();
   
-        console.log("API Response:", data.data);
+        console.log( data.data);
   
         const playableAgents = data.data?.filter(agent => agent.isPlayableCharacter) || [];
   

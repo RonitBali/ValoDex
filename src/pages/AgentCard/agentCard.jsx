@@ -10,7 +10,7 @@ const AgentsCard = ({ agent }) => {
   : "linear-gradient(135deg, #ccc, grey)";
 
  
-  
+  const [isflipped,setIsFlipped] = useState(false);
   const [isHeld, setIsHeld] = useState(false);
   let holdTimeout;
 
@@ -40,15 +40,19 @@ const AgentsCard = ({ agent }) => {
         style={{ background: gradientStyle }}
         initial="initial"
         whileHover="hover"
-        animate={isHeld ? "hover" : "initial"} 
+        animate={isflipped?"flipped": isHeld ? "hover" : "initial"}
         variants={{
           initial: { scale: 1 },
-          hover: { scale: 1.05 }
+          hover: { scale: 1.05 },
+          flipped: {scale:1,rotateY:180}
         }}
         transition={{ duration: 0.1 }}
+        onClick={()=>{setIsFlipped(!isflipped)}}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
+        {/* front side */}
+        
         <div 
           className="background"  
           style={{ backgroundImage: `url(${agent.background})` }}
@@ -66,8 +70,6 @@ const AgentsCard = ({ agent }) => {
           <h1 className="text-gray-400 font-bold text-2xl">{agent.displayName}</h1>
           <p className="text-red-500 text-l">{agent.role?.displayName}</p>
         </motion.div>
-
-     
         <motion.img 
           src={agent.fullPortrait}
           alt={agent.displayName}
@@ -79,6 +81,24 @@ const AgentsCard = ({ agent }) => {
           transition={{ duration: 0.3 }}
         />
       </motion.div>
+      {/* Back-side */}
+      
+      <div>
+        <div>
+          <h1>Abilities</h1>
+          <ul>
+            {agent.abilities.map((ability, index)=>(
+              <li key={index}>
+                {ability.displayIcon && (
+                  <><img className="h-10"src={ability.displayIcon} alt={ability.displayName} /><span>{ability.displayName}</span></>
+                )}
+              </li>
+          
+  
+            ))}
+          </ul>
+        </div>
+      </div>
     </motion.section>
   );
 };
