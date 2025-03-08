@@ -7,6 +7,12 @@ export default {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			inter: ["Inter", "sans-serif"],
+			noto: ["Noto Sans", "sans-serif"],
+			outfit: ["Outfit", "sans-serif"],
+			poppins: ["Poppins", "sans-serif"],
+		  },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

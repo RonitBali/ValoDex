@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import "../AgentCard/agentCard.css";
 import { motion } from "framer-motion";
+import { Navigate, useNavigate } from "react-router";
 
 const AgentsCard = ({ agent }) => {
+  const navigate = useNavigate();
   const backgroundColors = agent.backgroundGradientColors ;
   const gradientStyle = backgroundColors.length
   ? `linear-gradient(135deg, ${backgroundColors.map(color => `#${color.substring(0, 6)}`).join(", ")})`
@@ -47,7 +49,8 @@ const AgentsCard = ({ agent }) => {
           flipped: {scale:1,rotateY:180}
         }}
         transition={{ duration: 0.1 }}
-        onClick={()=>{setIsFlipped(!isflipped)}}
+        // onClick={()=>{setIsFlipped(!isflipped)}}
+        onClick={()=> navigate("/abilities", {state:{agent}})}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -83,14 +86,16 @@ const AgentsCard = ({ agent }) => {
       </motion.div>
       {/* Back-side */}
       
-      <div>
+      {/* <div>
         <div>
           <h1>Abilities</h1>
           <ul>
             {agent.abilities.map((ability, index)=>(
               <li key={index}>
                 {ability.displayIcon && (
-                  <><img className="h-10"src={ability.displayIcon} alt={ability.displayName} /><span>{ability.displayName}</span></>
+                  <><img className="h-10"src={ability.displayIcon} alt={ability.displayName} />
+                  <span>{ability.slot}</span>
+                  <span>{ability.displayName}</span></>
                 )}
               </li>
           
@@ -98,7 +103,7 @@ const AgentsCard = ({ agent }) => {
             ))}
           </ul>
         </div>
-      </div>
+      </div> */}
     </motion.section>
   );
 };

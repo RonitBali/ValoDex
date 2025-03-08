@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "@/Components/loading";
 import AgentsCard from "../AgentCard/agentCard";
+import "../Home/Home.css"
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -40,15 +42,16 @@ const Home = () => {
   );
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
+    <div className="bodyui">
+    <div className="bg-gray-900 text-white min-h-screen ">
     {/* Navbar */}
     <nav className="flex flex-wrap justify-between items-center px-5 py-4 bg-gray-800 shadow-md">
       <h1 className="text-3xl font-bold text-red-500">ValoDex</h1>
   
-      <ul className="hidden md:flex space-x-6">
+      {/* <ul className="hidden md:flex space-x-6">
         <li><Link to="/" className="hover:text-red-400">Home</Link></li>
-        <li><Link to="/agents" className="hover:text-red-400">Agents</Link></li>
-      </ul>
+        <li><Link to="/abilities" className="hover:text-red-400">Abilities</Link></li>
+      </ul> */}
   
       {/* Search Bar (Mobile-Friendly) */}
       <input
@@ -56,7 +59,7 @@ const Home = () => {
         placeholder="Search Agents..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="px-3 py-1 rounded bg-gray-700 text-white border border-gray-600 w-full md:w-auto mt-3 md:mt-0"
+        className="px-3  py-1 rounded bg-gray-700 text-white border border-gray-600 w-full md:w-auto mt-3 md:mt-0"
       />
     </nav>
   
@@ -84,7 +87,8 @@ const Home = () => {
        initial={{ opacity: 0, y: -20 }} 
        animate={{ opacity: 1, y: 0 }} 
       className="mt-3 text-base md:text-lg text-gray-300 relative">
-        Explore all Valorant agents, their abilities, and roles.
+        Explore all Valorant agents, their abilities, and roles.<br></br>
+        Click on Card To See Abilities.
       </motion.p>
   
       {/* <Link to="/agents"> */}
@@ -120,6 +124,7 @@ const Home = () => {
     <footer className="bg-gray-800 p-4 text-center">
       <p>© 2025 ValoDex | Built with Valorant API</p>
     </footer>
+  </div>
   </div>
   );  
 };
