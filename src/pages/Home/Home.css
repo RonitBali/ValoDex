@@ -10,6 +10,17 @@
     /* padding: 20px; */
 }
 
+.mapui{
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  
+ 
+  
+  /* padding: 20px; */
+}
+
+
   
   .abilities-container {
     text-align: center;

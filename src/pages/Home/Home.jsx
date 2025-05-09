@@ -48,10 +48,10 @@ const Home = () => {
         <nav className="flex flex-wrap justify-between items-center px-5 py-4 bg-gray-800 shadow-md">
           <h1 className="text-3xl font-bold text-red-500">ValoDex</h1>
 
-          {/* <ul className="hidden md:flex space-x-6">
-        <li><Link to="/" className="hover:text-red-400">Home</Link></li>
-        <li><Link to="/abilities" className="hover:text-red-400">Abilities</Link></li>
-      </ul> */}
+          <ul className="hidden md:flex space-x-6">
+        <li><Link to="/maps" className="hover:text-red-400 text-xl">Maps</Link></li>
+        <li><a href="#agents-section" className="hover:text-red-400 text-xl">Agents</a></li>
+      </ul>
 
           {/* Search Bar (Mobile-Friendly) */}
           <input
