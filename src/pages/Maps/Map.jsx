@@ -4,17 +4,24 @@ import { useState, useEffect } from 'react'
 const Map = () => {
     const [mapdata, setMapData] = useState([]);
 
-    useEffect(() => {
-        async function getmapData() {
-            const res = await fetch("https://valorant-api.com/v1/maps");
-            const data = await res.json();
-            // console.log(data.data)
-            const uniquemaps = data.data.filter(map, index, self => 
-                index === self.findindex((m)=>m.uuid === map.uuid) );
-            setMapData(uniquemaps);
-        }
-        getmapData();
-    }, [])
+ useEffect(() => {
+    async function getmapData() {
+        const res = await fetch("https://valorant-api.com/v1/maps");
+        const data = await res.json();
+
+        const filtered = data.data.filter((map) => 
+            map.uuid && map.displayName && map.splash // avoid nulls or placeholders
+        );
+
+        const uniquemaps = filtered.filter((map, index, self) =>
+            index === self.findIndex((m) => m.uuid === map.uuid)
+        );
+
+        setMapData(uniquemaps);
+    }
+    getmapData();
+}, []);
+
 
 
     return (
